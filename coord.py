@@ -42,15 +42,12 @@ def get_slope(x: float, y: float, radius: int = 10, resolution: int =100) -> flo
 
     maximum = max(elevations)
     minimum = min(elevations)
-    print(maximum)
-    print(minimum)
 
     x1, y1 = maximum[1]
     x2, y2 = minimum[1]
     
     # Pythagorean Theorum
     distance = math.sqrt((x2-x1)**2 + (y2-y1)**2) * one_degree_to_meters
-    print(distance)
     deg = math.degrees(math.atan((maximum[0] - minimum[0]) / distance))
 
     return deg
