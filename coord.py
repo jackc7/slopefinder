@@ -32,9 +32,6 @@ def get_slope(x, y, radius: int = 10, resolution: int = 300) -> float:
     radius_in_coords = radius / one_degree_to_meters
     points = [(math.cos(2*math.pi/resolution*x)*radius_in_coords,math.sin(2*math.pi/resolution*x)*radius_in_coords) for x in range(0,resolution+1)]
     final = [(x+xd, y+yd) for xd, yd in points]
-    with open("lmaoooo","w") as f:
-        for point, point2 in points:
-            f.write(f"{point:.20f},{point2:.20f}\n")
 
     link_list = ""
     for x, y in final:
