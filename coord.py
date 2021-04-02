@@ -17,14 +17,16 @@ def get_response(coords: str):
     
     return request.json()
     
-def get_slope(x, y, radius: int = 10, resolution: int = 300) -> float:
-    """Get the "instantaneous" slope at given coordinate x, y.
+def get_slope(x, y, radius: int = 10, resolution: int = 360) -> float:
+    """Get the slope at given coordinate x, y.
     
-        x: longitudinal coordinate
-        y: latitudinal coordinate
-        diameter: Distance between center point and outside points (meters)
-        resolution: Number of points to check for around the x, y (maximum 377)
-        
+    Draws a circle with n dots (default 360) based on resolution and finds highest
+    and lowest point. From there slope is calculated.
+    
+             :x:  longitudinal coordinate
+             :y:  latitudinal coordinate
+      :diameter:  Distance between center point and outside points (meters)
+    :resolution:  Number of points to check for around the x, y (maximum 377)
     """
     
     one_degree_to_meters = 111198.94090183832
